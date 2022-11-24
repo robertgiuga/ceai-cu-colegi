@@ -1,25 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import AuthContext from "./components/Auth/auth-context";
+import AuthForm from "./components/Auth/AuthForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <AuthForm></AuthForm>
+  )
 }
 
 export default App;
