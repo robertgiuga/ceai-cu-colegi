@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import EventCard from './components/EventCard';
+import { EventsPage } from './components/EventsPage';
 
 function App() {
   return (
-    <EventCard/>
+    <EventsPage/>
   );
 }
 
