@@ -1,12 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import AuthContext from "./components/Auth/auth-context";
 import AuthForm from "./components/Auth/AuthForm";
+import UserPage from './pages/UserPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+export const User = (id, firstName, lastName, email, func) => { return { id: id, firstName: firstName, lastName: lastName, email: email, func: func } }
+
+const App = () => {
   return (
-      <AuthForm></AuthForm>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AuthForm />} />
+        <Route path="/userPage/:id" element={<UserPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
