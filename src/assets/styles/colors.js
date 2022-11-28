@@ -1,13 +1,5 @@
-$color-1:#ea7070;
-$color-2:#fdc4b6;
-$color-3:#e59572;
-$color-4:#2694ab;
-$color-5:#4dbedf;
-
-:export {
-   color-1:$color-1;
-   color-2:$color-2;
-   color-3:$color-3;
-   color-4:$color-4;
-   color-5:$color-5;
-}
+export const color1 = "#ea7070"
+export const color2 = "#fdc4b6"
+export const color3 = "#e59572"
+export const color4 = "#2694ab"
+export const color5 = "#4dbedf"
