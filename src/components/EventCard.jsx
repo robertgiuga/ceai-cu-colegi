@@ -5,10 +5,11 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import {styled} from "@mui/material/styles";
+import {colorCoralPale } from "../assets/styles/colors";
 
 const StyledButton = styled(Button)({
   ":hover":{
-    backgroundColor: '#fdc4b6'
+    backgroundColor: colorCoralPale
   }
 })
 
