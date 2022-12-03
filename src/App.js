@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { EventsPage } from './components/Events/EventsPage';
 import AuthForm from "./components/Auth/AuthForm";
 import UserPage from './pages/UserPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
