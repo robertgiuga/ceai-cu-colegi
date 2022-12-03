@@ -5,18 +5,20 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import {styled} from "@mui/material/styles";
-import {colorCoralPale } from "../../assets/styles/colors";
+import {colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
 
 const StyledButton = styled(Button)({
   ":hover":{
     backgroundColor: colorCoralPale
   }
 })
-
+const StyledCard = styled(Card)({
+  backgroundColor:colorLightGrey
+})
 
 export default function EventCard({ props }) {
   return (
-    <Card variant="outlined" sx={{ width: 320 }}>
+    <StyledCard sx={{ width: 320 }}>
       <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
         {props.title}
       </Typography>
@@ -45,6 +47,6 @@ export default function EventCard({ props }) {
           Subscribe
         </StyledButton>
       </Box>
-    </Card>
+    </StyledCard>
   );
 }
