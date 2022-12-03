@@ -16,7 +16,7 @@ const UserPage = ({ userId }) => {
             <PersonCard user={user} />
             {/* TODO: add Events component. Send through props -> userId.
              If userId=null => allEvents,
-             If userId!=null => events where a user participates */}
+             If userId!=null => events where a user participates */} 
         </div>
     );
 };
