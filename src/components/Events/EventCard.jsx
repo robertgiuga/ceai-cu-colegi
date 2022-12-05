@@ -12,8 +12,10 @@ const StyledButton = styled(Button)({
     backgroundColor: colorCoralPale
   }
 })
+
 const StyledCard = styled(Card)({
-  backgroundColor:colorLightGrey
+  backgroundColor:colorLightGrey,
+  boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px;"
 })
 
 export default function EventCard({ props }) {

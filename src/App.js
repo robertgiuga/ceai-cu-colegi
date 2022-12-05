@@ -13,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<AuthForm />} />
         <Route path="/userPage/:id" element={<UserPage />} />
+        <Route path = "/events" element = {<EventsPage/>}/>
       </Routes>
     </BrowserRouter>
   );
