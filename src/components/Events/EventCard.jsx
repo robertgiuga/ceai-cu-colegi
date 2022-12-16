@@ -24,7 +24,7 @@ export default function EventCard({ props }) {
       <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
         {props.title}
       </Typography>
-      <Typography level="body2">{props.datetime.toLocaleString()}</Typography>
+      <Typography level="body2">{props.datetime?.toLocaleString()}</Typography>
     
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img
@@ -37,7 +37,7 @@ export default function EventCard({ props }) {
         <div>
           <Typography level="body3">Participants:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
-            {props.participants}
+            {props.participants.length}
           </Typography>
         </div>
         <StyledButton
