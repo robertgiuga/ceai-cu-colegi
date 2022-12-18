@@ -1,4 +1,5 @@
 import { useState, useRef, useContext } from 'react';
+import { Button, FormControl, TextField } from '@mui/material';
 // import { useHistory } from 'react-router-dom';
 
 import AuthContext from './auth-context'
@@ -6,7 +7,7 @@ import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
     // const history = useHistory();
-    const history="";
+    const history = "";
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
 
@@ -24,7 +25,7 @@ const AuthForm = () => {
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
         setIsLoading(true);
-        let url='';
+        let url = '';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({
@@ -61,29 +62,36 @@ const AuthForm = () => {
     };
 
     return (
-        <section className={classes.auth}>
-            <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-            <form onSubmit={submitHandler}>
-                <div className={classes.control}>
-                    <label htmlFor='email'>Your Email</label>
-                    <input type='email' id='email' required ref={emailInputRef} />
-                </div>
-                <div className={classes.control}>
-                    <label htmlFor='password'>Your Password</label>
-                    <input
+        <div className={classes.authPage}>
+            <section className={classes.auth}>
+                <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+                <form onSubmit={submitHandler}>
+                    <TextField
+                        type='email'
+                        className={classes.control}
+                        label='Your Email'
+                        variant='standard'
+                        required
+                        ref={emailInputRef}
+                    >
+                    </TextField>
+                    <TextField
                         type='password'
-                        id='password'
+                        className={classes.control}
+                        label='Your Password'
+                        variant='standard'
                         required
                         ref={passwordInputRef}
-                    />
-                </div>
-                <div className={classes.actions}>
-                    {!isLoading && (
-                        <button>{isLogin ? 'Login' : 'Create Account'}</button>
-                    )}
-                </div>
-            </form>
-        </section>
+                    >
+                    </TextField>
+                    <div className={classes.actions}>
+                        {!isLoading && (
+                            <button>{isLogin ? 'Login' : 'Create Account'}</button>
+                        )}
+                    </div>
+                </form>
+            </section>
+        </div>
     );
 };
 
