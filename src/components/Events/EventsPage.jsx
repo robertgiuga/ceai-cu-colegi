@@ -5,8 +5,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import { HOST,PORT } from "../../prodURL.js";
 import { Navbar } from "../Navbar/Navbar";
-import { Events,EventCard } from "./Events";
+import { Events } from "./Events";
 import { StyledContainer } from "./Events";
+import EventCard from './EventCard'
 
 export function EventsPage() {
   const [events, setEvents] = useState([]);
