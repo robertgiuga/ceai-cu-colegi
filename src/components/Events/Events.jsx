@@ -221,7 +221,7 @@ const eventsMock = [
     },
 ];
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
 grid-template-rows: auto;
