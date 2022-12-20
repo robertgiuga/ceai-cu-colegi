@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { User } from '../../App';
 
 export const Navbar = () => {
-    const user = User(1, 'Andreea', 'Rus', 'andreea111@yahoo.com', 'director');
+    const user = User(1, 'Andreea', 'Rus', 'andreeaR13@yahoo.com', 'director');
     return (
         <div className="Navbar">
             <div className="Navbar-left"></div>

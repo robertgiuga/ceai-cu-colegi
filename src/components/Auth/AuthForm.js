@@ -14,7 +14,7 @@ const AuthForm = () => {
   const passwordInputRef = useRef();
 
   const authCtx = useContext(AuthContext);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [pass, setPass] = useState("");
@@ -69,52 +69,52 @@ const AuthForm = () => {
     console.log({ pass, email });
     const LOGIN_URL = `http://${HOST}:${PORT}/login`;
     var form_data = new FormData();
-    form_data.append("email",email)
-    form_data.append("password",pass)
+    form_data.append("email", email)
+    form_data.append("password", pass)
     axios.post(LOGIN_URL, form_data).then((resp) => {
-      localStorage.setItem("token",resp.data.access_token)
+      localStorage.setItem("token", resp.data.access_token)
       navigate("/events");
     })
-    .catch((err) => console.error(err));;
+      .catch((err) => console.error(err));;
   };
 
   return (
-    <section className={classes.auth}>
-      <h2>{isLogin ? "Login" : "Sign Up"}</h2>
-      <form onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
-          <input
-            type="email"
-            id="email"
+    <div className={classes.authPage}>
+      <section className={classes.auth}>
+        <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+        <form onSubmit={submitHandler}>
+          <TextField
+            type='email'
+            className={classes.control}
+            label='Your Email'
+            variant='standard'
             required
             ref={emailInputRef}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-          />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
-          <input
-            type="password"
-            id="password"
+          >
+          </TextField>
+          <TextField
+            type='password'
+            className={classes.control}
+            label='Your Password'
+            variant='standard'
             required
             ref={passwordInputRef}
             onChange={(e) => {
               setPass(e.target.value);
             }}
-          />
-        </div>
-        <div className={classes.actions}>
-          {!isLoading && (
-            <button onClick={doLogin}>
-              {isLogin ? "Login" : "Create Account"}
-            </button>
-          )}
-        </div>
-      </form>
-    </section>
+          >
+          </TextField>
+          <div className={classes.actions}>
+            {!isLoading && (
+              <button onClick={doLogin}>{isLogin ? 'Login' : 'Create Account'}</button>
+            )}
+          </div>
+        </form>
+      </section>
+    </div>
   );
 };
 
