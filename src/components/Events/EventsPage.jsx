@@ -13,14 +13,6 @@ export function EventsPage() {
   const [events, setEvents] = useState([]);
   const EVENTS_URL = `http://${HOST}:${PORT}/subscribed`
   useEffect(() => {
-    console.log({token:localStorage.getItem("token")});
-    // axios.get(EVENTS_URL,{},{
-    //   headers:{
-    //     Authorization: `Bearer ${localStorage.getItem("token")}`
-    //   }console.log();
-    // }).then(resp => {
-    //   console.log({resp});
-    // }).catch(error => console.log({error}))
     fetch(EVENTS_URL,{headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`
     }}).then(resp => resp.json())
