@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
+import {Outlet} from "react-router-dom";
+import {useNavigate} from "react-router";
 
 let logoutTimer;
 
@@ -13,9 +15,7 @@ const calculateRemainingTime = (expirationTime) => {
     const currentTime = new Date().getTime();
     const adjExpirationTime = new Date(expirationTime).getTime();
 
-    const remainingDuration = adjExpirationTime - currentTime;
-
-    return remainingDuration;
+    return adjExpirationTime - currentTime;
 };
 
 const retrieveStoredToken = () => {
@@ -36,7 +36,9 @@ const retrieveStoredToken = () => {
     };
 };
 
-export const AuthContextProvider = (props) => {
+
+export const AuthContextProvider = () => {
+    const navigate = useNavigate();
     const tokenData = retrieveStoredToken();
 
     let initialToken;
@@ -52,10 +54,10 @@ export const AuthContextProvider = (props) => {
         setToken(null);
         localStorage.removeItem('token');
         localStorage.removeItem('expirationTime');
-
         if (logoutTimer) {
             clearTimeout(logoutTimer);
         }
+        navigate("/")
     }, []);
 
     const loginHandler = (token, expirationTime) => {
@@ -84,7 +86,7 @@ export const AuthContextProvider = (props) => {
 
     return (
         <AuthContext.Provider value={contextValue}>
-            {props.children}
+            <Outlet/>
         </AuthContext.Provider>
     );
 };
