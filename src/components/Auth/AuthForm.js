@@ -7,8 +7,6 @@ import { TextField } from "@mui/material";
 import { HOST, PORT } from "../../prodURL.js";
 
 const AuthForm = () => {
- 
-
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
@@ -22,8 +20,8 @@ const AuthForm = () => {
     setIsLoading(true);
     const url = `http://${HOST}:${PORT}/login`;
     var form_data = new FormData();
-    form_data.append("email",email);
-    form_data.append("password",pass);
+    form_data.append("email", email);
+    form_data.append("password", pass);
     axios
       .post(url, form_data)
       .then((resp) => {
@@ -37,20 +35,6 @@ const AuthForm = () => {
         setIsError(true);
         console.error(err);
       });
-  };
-
-  const doLogin = () => {
-    const LOGIN_URL = `http://${HOST}:${PORT}/login`;
-    var form_data = new FormData();
-    form_data.append("email", email);
-    form_data.append("password", pass);
-    axios
-      .post(LOGIN_URL, form_data)
-      .then((resp) => {
-        localStorage.setItem("token", resp.data.access_token);
-        navigate("/events");
-      })
-      .catch((err) => console.error(err));
   };
 
   return (

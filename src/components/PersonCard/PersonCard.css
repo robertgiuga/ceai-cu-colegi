@@ -37,7 +37,6 @@
     border-color: #2694ab;
 }
 
-
 .addEventPopup {
     background-color: rgb(234, 112, 112, 1);
     height: 80vh;
@@ -54,7 +53,7 @@
 
 .inputField div {
     width: 250px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .closePopup {

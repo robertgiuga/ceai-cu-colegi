@@ -4,19 +4,19 @@ import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
-import {styled} from "@mui/material/styles";
-import {colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
+import { styled } from "@mui/material/styles";
+import { colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
 
 const StyledButton = styled(Button)({
-  ":hover":{
+  ":hover": {
     backgroundColor: colorCoralPale
   }
-})
+});
 
 const StyledCard = styled(Card)({
-  backgroundColor:colorLightGrey,
-  boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-})
+  backgroundColor: colorLightGrey,
+  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+});
 
 export default function EventCard({ props }) {
   return (
@@ -25,7 +25,7 @@ export default function EventCard({ props }) {
         {props.title}
       </Typography>
       <Typography level="body2">{props.datetime?.toLocaleString()}</Typography>
-    
+
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img
           src={props.imgSrc}
@@ -42,7 +42,7 @@ export default function EventCard({ props }) {
         </div>
         <StyledButton
           variant="solid"
-          size="sm"       
+          size="sm"
           aria-label="A button"
           sx={{ ml: "auto", fontWeight: 600 }}
         >
