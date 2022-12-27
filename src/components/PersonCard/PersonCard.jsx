@@ -26,10 +26,10 @@ export const PersonCard = ({ user }) => {
                     <b>Email: </b>{user.email}
                 </p>
                 <p>
-                    <b>Function: </b>{user.func}
+                    <b>Function: </b>{user.function}
                 </p>
                 <button className='AddEvent-button' onClick={handleEvent}>Add Event</button>
-                <AddEventPopup isOpen={isOpen} handleClose={handleCloseModal}/>
+                <AddEventPopup isOpen={isOpen} handleClose={handleCloseModal} />
             </div>
             <div className='PersonCard-right'>
             </div>

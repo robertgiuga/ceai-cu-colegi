@@ -1,225 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { HOST, PORT } from "../../prodURL";
 import EventCard from "./EventCard";
-
-const eventsMock = [
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-    {
-        title: "Title 1",
-        location: "Location 1",
-        datetime: new Date().toLocaleString(),
-        description: "Beautiful description",
-        participants: 0,
-        imgSrc:
-            "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-    },
-];
+import { useEffect, useState } from "react";
 
 export const StyledContainer = styled.div`
 display: grid;
@@ -235,14 +18,17 @@ margin-right: 2rem;
 `;
 
 export const Events = ({ userId }) => {
-
-    {/*
-             If userId=null => allEvents,
-             If userId!=null => events where a user participates 
-             => backend
-    */}
-    //const events = userId !== null ? getAllEvents() : getEventsUser(userId);
-    const events = eventsMock;
+    const [events, setEvents] = useState([]);
+    const EVENTS_URL = `http://${HOST}:${PORT}/subscribed`
+    useEffect(() => {
+        fetch(userId !== null ? EVENTS_URL : EVENTS_URL, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(resp => resp.json())
+            .then(resp => setEvents(resp))
+            .catch(error => console.log({ error }))
+    }, []);
 
     return (
         <StyledContainer>

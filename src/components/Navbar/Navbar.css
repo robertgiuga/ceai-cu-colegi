@@ -1,10 +1,9 @@
-
 .Navbar {
 	height: 80px;
 	padding: 10px 20px;
 	display: flex;
 	justify-content: space-between;
-    background-color: rgb(234, 112, 112, 0.9);
+	background-color: rgb(234, 112, 112, 0.9);
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
@@ -30,7 +29,14 @@
 	cursor: pointer;
 	font-size: 14px;
 	margin-left: 20px;
-    color: black;
+	color: black;
+	text-decoration: none;
+}
+
+.Navbar-title {
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
 }
 
 .Navbar-Link {
