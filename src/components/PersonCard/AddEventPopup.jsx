@@ -55,6 +55,7 @@ export const AddEventPopup = ({ isOpen, handleClose }) => {
                 .then(resp => {
                     console.log(resp);
                     handleClose();
+                    window.location.reload();
                 })
                 .catch((err) => {
                     console.error(err);
