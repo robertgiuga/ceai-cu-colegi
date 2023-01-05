@@ -19,9 +19,10 @@ margin-right: 2rem;
 
 export const Events = ({ userId }) => {
     const [events, setEvents] = useState([]);
-    const EVENTS_URL = `http://${HOST}:${PORT}/subscribed`
+    const SUBSCRIBED_URL = `http://${HOST}:${PORT}/subscribed`
+    const UNSUBSCRIBED_URL = `http://${HOST}:${PORT}/unsubscribed`
     useEffect(() => {
-        fetch(userId !== null ? EVENTS_URL : EVENTS_URL, {
+        fetch(userId !== null ? SUBSCRIBED_URL : UNSUBSCRIBED_URL, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -41,6 +42,7 @@ export const Events = ({ userId }) => {
                         imgSrc: item.imgSrc,
                         title: item.title,
                         participants: item.participants,
+                        userId: userId
                     }}
                 />
             ))}
