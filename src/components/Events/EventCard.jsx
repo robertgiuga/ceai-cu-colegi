@@ -7,18 +7,22 @@ import Typography from "@mui/joy/Typography";
 import { styled } from "@mui/material/styles";
 import { colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
 
-const StyledButton = styled(Button)({
-  ":hover": {
-    backgroundColor: colorCoralPale
-  }
-});
-
 const StyledCard = styled(Card)({
   backgroundColor: colorLightGrey,
   boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
 });
 
 export default function EventCard({ props }) {
+  const StyledButton = styled(Button)({
+    ":hover": {
+      backgroundColor: colorCoralPale
+    },
+    backgroundColor: props.userId !== null ? colorCoralPale : colorLightGrey,
+    ":disabled": {
+      backgroundColor: "#a9a9a9",
+    },
+  });
+
   return (
     <StyledCard sx={{ width: 320 }}>
       <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
@@ -45,6 +49,7 @@ export default function EventCard({ props }) {
           size="sm"
           aria-label="A button"
           sx={{ ml: "auto", fontWeight: 600 }}
+          disabled={props.userId !== null ? true : false}
         >
           Subscribe
         </StyledButton>
