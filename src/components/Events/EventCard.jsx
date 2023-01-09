@@ -6,16 +6,45 @@ import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import { styled } from "@mui/material/styles";
 import { colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
+import { HOST, PORT } from "../../prodURL";
+import axios from "axios";
 
 const StyledCard = styled(Card)({
   backgroundColor: colorLightGrey,
-  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
 });
 
+//props should contain, token,event id
 export default function EventCard({ props }) {
+  const eventId = props.id;
+  const token = localStorage.getItem("token");
+  const [isDisabled, setIsDisabled] = React.useState(
+    props.isSubscribed === "subscribed" ? true : false
+  );
+  const USER_EVENT_SUBSCRIPTION = `http://${HOST}:${PORT}/subscribe/${eventId}`;
+  const onSubscribeClick = () => {
+    axios
+      .post(
+        USER_EVENT_SUBSCRIPTION,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   const StyledButton = styled(Button)({
     ":hover": {
-      backgroundColor: colorCoralPale
+      backgroundColor: colorCoralPale,
     },
     backgroundColor: props.userId !== null ? colorCoralPale : colorLightGrey,
     ":disabled": {
@@ -31,11 +60,7 @@ export default function EventCard({ props }) {
       <Typography level="body2">{props.datetime?.toLocaleString()}</Typography>
 
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
-        <img
-          src={props.imgSrc}
-          loading="lazy"
-          alt=""
-        />
+        <img src={props.imgSrc} loading="lazy" alt="" />
       </AspectRatio>
       <Box sx={{ display: "flex" }}>
         <div>
@@ -49,9 +74,14 @@ export default function EventCard({ props }) {
           size="sm"
           aria-label="A button"
           sx={{ ml: "auto", fontWeight: 600 }}
-          disabled={props.userId !== null ? true : false}
+          onClick={onSubscribeClick}
+          disabled={isDisabled}
         >
-          Subscribe
+          {props.isSubscribed === "unsubscribed" ? (
+            <em>Subscribe</em>
+          ) : (
+            <em>Subscribed</em>
+          )}
         </StyledButton>
       </Box>
     </StyledCard>
