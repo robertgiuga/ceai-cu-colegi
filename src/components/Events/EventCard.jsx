@@ -9,12 +9,6 @@ import { colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
 import { HOST, PORT } from "../../prodURL";
 import axios from "axios";
 
-const StyledButton = styled(Button)({
-  ":hover": {
-    backgroundColor: colorCoralPale,
-  },
-});
-
 const StyledCard = styled(Card)({
   backgroundColor: colorLightGrey,
   boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;",
@@ -24,24 +18,39 @@ const StyledCard = styled(Card)({
 export default function EventCard({ props }) {
   const eventId = props.id;
   const token = localStorage.getItem("token");
-  const [isDisabled,setIsDisabled] = React.useState(props.isSubscribed === "subscribed" ? true: false)
+  const [isDisabled, setIsDisabled] = React.useState(
+    props.isSubscribed === "subscribed" ? true : false
+  );
   const USER_EVENT_SUBSCRIPTION = `http://${HOST}:${PORT}/subscribe/${eventId}`;
   const onSubscribeClick = () => {
     axios
-        .post(USER_EVENT_SUBSCRIPTION , {}, {
+      .post(
+        USER_EVENT_SUBSCRIPTION,
+        {},
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        })
-        .then((resp) => {
-          console.log(resp);
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+        }
+      )
+      .then((resp) => {
+        console.log(resp);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
+  const StyledButton = styled(Button)({
+    ":hover": {
+      backgroundColor: colorCoralPale,
+    },
+    backgroundColor: props.userId !== null ? colorCoralPale : colorLightGrey,
+    ":disabled": {
+      backgroundColor: "#a9a9a9",
+    },
+  });
 
   return (
     <StyledCard sx={{ width: 320 }}>
@@ -68,8 +77,11 @@ export default function EventCard({ props }) {
           onClick={onSubscribeClick}
           disabled={isDisabled}
         >
-          
-          {props.isSubscribed === "unsubscribed" ? <em>Subscribe</em> : <em>Subscribed</em> }
+          {props.isSubscribed === "unsubscribed" ? (
+            <em>Subscribe</em>
+          ) : (
+            <em>Subscribed</em>
+          )}
         </StyledButton>
       </Box>
     </StyledCard>
