@@ -17,16 +17,16 @@ margin-left: 2rem;
 margin-right: 2rem;
 `;
 
-export const Events = ({ userId }) => {
+export const Events = ({ eventsType }) => {
     const [events, setEvents] = useState([]);
-    const EVENTS_URL = `http://${HOST}:${PORT}/subscribed`
+    const EVENTS_URL = `http://${HOST}:${PORT}/${eventsType}`
     useEffect(() => {
-        fetch(userId !== null ? EVENTS_URL : EVENTS_URL, {
+        fetch(EVENTS_URL, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
         }).then(resp => resp.json())
-            .then(resp => setEvents(resp))
+            .then(resp => {setEvents(resp);console.log({resp});})
             .catch(error => console.log({ error }))
     }, []);
 
@@ -34,13 +34,16 @@ export const Events = ({ userId }) => {
         <StyledContainer>
             {events.map((item, index) => (
                 <EventCard
+                    key={index}
                     props={{
+                        id:item.id,
                         location: item.location,
                         datetime: item.datetime,
                         description: item.description,
                         imgSrc: item.imgSrc,
                         title: item.title,
                         participants: item.participants,
+                        isSubscribed:eventsType
                     }}
                 />
             ))}

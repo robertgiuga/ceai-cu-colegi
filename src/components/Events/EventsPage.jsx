@@ -7,7 +7,7 @@ export function EventsPage() {
     <>
       <div>
         <Navbar />
-        <Events userId={null} />
+        <Events eventsType={"unsubscribed"} />
       </div>
     </>
   );

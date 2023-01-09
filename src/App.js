@@ -15,7 +15,7 @@ const App = () => {
           <Route path="/" element={<AuthForm />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/userPage" element={<UserPage />} />
-            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events" element={<EventsPage eventsType={"unsubscribed"} />} />
           </Route>
         </Route>
       </Routes>
