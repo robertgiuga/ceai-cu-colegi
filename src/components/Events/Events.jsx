@@ -39,6 +39,7 @@ export const Events = ({ eventsType }) => {
                         id:item.id,
                         location: item.location,
                         datetime: item.datetime,
+                        hour: item.hour,
                         description: item.description,
                         imgSrc: item.imgSrc,
                         title: item.title,

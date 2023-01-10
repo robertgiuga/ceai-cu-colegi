@@ -54,17 +54,18 @@ export default function EventCard({ props }) {
 
   return (
     <StyledCard sx={{ width: 320 }}>
-      <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }}>
+      <Typography level="h2" fontSize="25px" sx={{ mb: 0.5 }}>
         {props.title}
       </Typography>
-      <Typography level="body2">{props.datetime?.toLocaleString()}</Typography>
+      <Typography level="body4"><b>location: </b>{props.location?.toLocaleString()}</Typography>
+      <Typography level="body2" marginLeft={"190px"}>{props.datetime?.toLocaleString() + ' ' + props.hour?.toLocaleString()}</Typography>
 
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img src={props.imgSrc} loading="lazy" alt="" />
       </AspectRatio>
       <Box sx={{ display: "flex" }}>
         <div>
-          <Typography level="body3">Participants:</Typography>
+          <Typography level="body5">Participants:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
             {props.participants.length}
           </Typography>
