@@ -18,7 +18,7 @@ const UserPage = () => {
       .then((resp) => resp.json())
       .then((resp) => setUser(resp))
       .catch((error) => console.log({ error }));
-  }, []);
+  }, [USER_URL]);
 
   return (
     <div className="UserPage">

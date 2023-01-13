@@ -5,7 +5,7 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import { styled } from "@mui/material/styles";
-import { colorCoralPale, colorLightGrey } from "../../assets/styles/colors";
+import { colorCoralPale, colorLightGrey, colorYellow } from "../../assets/styles/colors";
 import { HOST, PORT } from "../../prodURL";
 import axios from "axios";
 
@@ -53,9 +53,10 @@ export default function EventCard({ props }) {
   });
 
   return (
-    <StyledCard sx={{ width: 320 }}>
-      <Typography level="h2" fontSize="25px" sx={{ mb: 0.5 }}>
+    <StyledCard sx={{ width: 320 }} style={{"backgroundColor":props.type === 'public' ? colorLightGrey : colorCoralPale}}>
+      <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }} style={{display:"flex",justifyContent:"space-between"}}>
         {props.title}
+        <em>{props.type}</em>
       </Typography>
       <Typography level="body4"><b>location: </b>{props.location?.toLocaleString()}</Typography>
       <Typography level="body2" marginLeft={"190px"}>{props.datetime?.toLocaleString() + ' ' + props.hour?.toLocaleString()}</Typography>
