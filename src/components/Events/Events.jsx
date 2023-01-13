@@ -43,7 +43,8 @@ export const Events = ({ eventsType }) => {
                         imgSrc: item.imgSrc,
                         title: item.title,
                         participants: item.participants,
-                        isSubscribed:eventsType
+                        isSubscribed:eventsType,
+                        type:item.type
                     }}
                 />
             ))}
