@@ -1,5 +1,5 @@
 .PersonCard {
-    height: 270px;
+    height: 120px;
     padding: 10px 0px 0px 50px;
     background-color: rgb(253, 195, 180, 0.5);
     font-size: 20px;
@@ -19,10 +19,9 @@
 }
 
 .PersonCard-right {
-    flex: 0.2;
-    display: flex;
+    flex: 0.5;
     align-items: center;
-    padding-bottom: 5px;
+    padding-top: 15px;
 }
 
 .AddEvent-button {
@@ -39,7 +38,7 @@
 
 .addEventPopup {
     background-color: rgb(234, 112, 112, 1);
-    height: 80vh;
+    height: 90vh;
     width: 50vh;
     border-radius: 2cm;
     align-items: center;
@@ -54,6 +53,12 @@
 .inputField div {
     width: 250px;
     margin-bottom: 10px;
+}
+
+.dropdown {
+    width: 250px;
+    margin-top: 20px;
+    left: 17%;
 }
 
 .closePopup {
@@ -73,7 +78,7 @@
 }
 
 .saveButton {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;

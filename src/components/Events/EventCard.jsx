@@ -58,14 +58,15 @@ export default function EventCard({ props }) {
         {props.title}
         <em>{props.type}</em>
       </Typography>
-      <Typography level="body2">{props.datetime?.toLocaleString()}</Typography>
+      <Typography level="body4"><b>location: </b>{props.location?.toLocaleString()}</Typography>
+      <Typography level="body2" marginLeft={"190px"}>{props.datetime?.toLocaleString() + ' ' + props.hour?.toLocaleString()}</Typography>
 
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img src={props.imgSrc} loading="lazy" alt="" />
       </AspectRatio>
       <Box sx={{ display: "flex" }}>
         <div>
-          <Typography level="body3">Participants:</Typography>
+          <Typography level="body5">Participants:</Typography>
           <Typography fontSize="lg" fontWeight="lg">
             {props.participants.length}
           </Typography>
