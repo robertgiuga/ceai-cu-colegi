@@ -6,6 +6,7 @@ import UserPage from './pages/UserPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from "./components/Auth/auth-context";
 import { ProtectedRoute } from "./components/Auth/ProtectedRoute";
+import HistoryPage from './pages/HistoryPage';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route element={<ProtectedRoute />}>
             <Route path="/userPage" element={<UserPage />} />
             <Route path="/events" element={<EventsPage  />} />
+            <Route path="/historyPage" element={<HistoryPage />} />
           </Route>
         </Route>
       </Routes>
