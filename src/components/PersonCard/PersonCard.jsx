@@ -19,7 +19,7 @@ export const PersonCard = () => {
             .then((resp) => resp.json())
             .then((resp) => setUser(resp))
             .catch((error) => console.log({ error }));
-    }, [isOn]);
+    }, []);
 
     React.useEffect(() => {
         setIsOn(user.approval === "true" ? true : false);
@@ -36,8 +36,23 @@ export const PersonCard = () => {
     const handleIsOn = (value) => {
         setIsOn(value);
         console.log(value);
-        //to ad api call to it
-    }
+
+        const URL_TRUE = `http://${HOST}:${PORT}/approval-true`;
+        const URL_FALSE = `http://${HOST}:${PORT}/approval-false`;
+        axios
+            .post(value === true ? URL_TRUE : URL_FALSE,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                }
+            )
+            .then(resp => { console.log(resp) })
+            .catch((err) => {
+                console.error(err);
+            });
+    };
 
     return (
         <div className="PersonCard">
