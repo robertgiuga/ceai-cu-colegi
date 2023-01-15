@@ -19,7 +19,7 @@ export default function EventCard({ props }) {
   const eventId = props.id;
   const token = localStorage.getItem("token");
   const [isDisabled, setIsDisabled] = React.useState(
-    props.isSubscribed === "subscribed" ? true : false
+    props.isSubscribed === "subscribed" ? true : props.isSubscribed === "expired" ? true : false
   );
   const USER_EVENT_SUBSCRIPTION = `http://${HOST}:${PORT}/subscribe/${eventId}`;
   const onSubscribeClick = () => {

@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import './Navbar.css';
 import PersonIcon from '@mui/icons-material/Person';
-import { BRAND, LOGOUT } from '../../constants';
+import { BRAND, HISTORY, LOGOUT } from '../../constants';
 import { Link } from 'react-router-dom';
 import AuthContext from "../Auth/auth-context";
+import HistoryIcon from '@mui/icons-material/History';
 
 export const Navbar = () => {
     const authCtx = useContext(AuthContext);
@@ -17,6 +18,9 @@ export const Navbar = () => {
                 </Link>
             </div>
             <div className="Navbar-right">
+                <Link to={`/historyPage`} className="Navbar-Link">
+                    <HistoryIcon className="Navbar-item" />
+                </Link>
                 <Link to={`/userPage`} className="Navbar-Link">
                     <PersonIcon className="Navbar-item" />
                 </Link>
