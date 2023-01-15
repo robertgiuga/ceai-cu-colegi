@@ -40,7 +40,7 @@ export const PersonCard = ({user}) => {
             <div className='PersonCard-right'>
                 <button className='AddEvent-button' onClick={handleEvent}>Add Event</button>
                 <AddEventPopup isOpen={isOpen} handleClose={handleCloseModal}/>
-                <p>
+                <p >
                     <b>Auto Events:   </b>
                     <label className="switch">
                         <input checked={isOn}  onChange={()=>{handleIsOn(!isOn)}} type="checkbox"></input>
