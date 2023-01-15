@@ -1,10 +1,11 @@
-import {useState, useContext} from "react";
-import {useNavigate} from "react-router";
+
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 import AuthContext from "./auth-context";
 import classes from "./AuthForm.module.css";
 import axios from "axios";
-import {TextField} from "@mui/material";
-import {HOST, PORT} from "../../prodURL.js";
+import { TextField } from "@mui/material";
+import { HOST, PORT } from "../../prodURL.js";
 
 const AuthForm = () => {
     const authCtx = useContext(AuthContext);
@@ -18,6 +19,7 @@ const AuthForm = () => {
     const [username, setUn] = useState("");
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
+    const [func, setFunc] = useState("");
     const [isPassDif, setIsPassDif] = useState(false);
 
     const checkPass = (cnfpass) => {
@@ -27,13 +29,14 @@ const AuthForm = () => {
             setIsPassDif(false);
     }
 
-    const clearFields=()=>{
+    const clearFields = () => {
         setEmail("");
         setPass("");
         setUn("");
         setLname("");
         setFname("");
         setCpass("");
+        setFunc("");
     }
 
     const submitHandler = (event) => {
@@ -64,7 +67,8 @@ const AuthForm = () => {
                 password: pass,
                 email: email,
                 firstName: fname,
-                lastName: lname
+                lastName: lname,
+                function: func
             }
             axios
                 .post(url, data)
@@ -115,6 +119,16 @@ const AuthForm = () => {
                                 value={username}
                                 onChange={(e) => {
                                     setUn(e.target.value);
+                                }}
+                            ></TextField>
+                            <TextField
+                                className={classes.control}
+                                label="Your Position"
+                                variant="standard"
+                                required
+                                value={func}
+                                onChange={(e) => {
+                                    setFunc(e.target.value);
                                 }}
                             ></TextField>
                         </div>

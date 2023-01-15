@@ -5,7 +5,7 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import { styled } from "@mui/material/styles";
-import { colorCoralPale, colorLightGrey, colorYellow } from "../../assets/styles/colors";
+import { colorCoralPale, colorLightGrey, colorCoralPaleLight } from "../../assets/styles/colors";
 import { HOST, PORT } from "../../prodURL";
 import axios from "axios";
 
@@ -53,14 +53,15 @@ export default function EventCard({ props }) {
   });
 
   return (
-    <StyledCard sx={{ width: 320 }} style={{"backgroundColor":props.type === 'public' ? colorLightGrey : colorCoralPale}}>
-      <Typography level="h2" fontSize="md" sx={{ mb: 0.5 }} style={{display:"flex",justifyContent:"space-between"}}>
+    <StyledCard sx={{ width: 320 }} style={{ "backgroundColor": props.type === 'public' ? colorLightGrey : colorCoralPaleLight }}>
+      <Typography level="h2" fontSize="25px" sx={{ mb: 0.5 }} style={{ display: "flex", justifyContent: "space-between", alignItems: "middle" }}>
         {props.title}
-        <em>{props.type}</em>
       </Typography>
       <Typography level="body4"><b>location: </b>{props.location?.toLocaleString()}</Typography>
-      <Typography level="body2" marginLeft={"190px"}>{props.datetime?.toLocaleString() + ' ' + props.hour?.toLocaleString()}</Typography>
-
+      <Typography level="body2" style={{ display: "flex", justifyContent: "space-between" }}>
+        <em>{props.type.toString().toUpperCase()}</em>
+        {props.datetime?.toLocaleString() + ' ' + props.hour?.toLocaleString()}
+      </Typography>
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img src={props.imgSrc} loading="lazy" alt="" />
       </AspectRatio>
